@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/2d3e9a4d3f.js" crossorigin="anonymous"></script>
+  <title>Swapna V | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    /* Floating Resume Button with Icon */
+    .resume-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0077ff;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .resume-btn i {
+      font-size: 1.1rem;
+    }
+    .resume-btn:hover {
+      background: #005fcc;
+      transform: translateY(-3px);
+    }
+
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    nav h1 { font-size: 1.5rem; color: #0077ff; }
+    nav ul { display: flex; list-style: none; gap: 20px; }
+    nav ul li a:hover { color: #0077ff; }
+
+/* Hamburger Menu - always visible */
+.menu-toggle {
+  display: block;   /* ✅ show on all screen sizes */
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #0077ff;
+  margin-left: 20px;
+}
+
+/* Mobile adjustments */
+@media(max-width:768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  nav ul.show {
+    display: flex;
+  }
+}
+
+
+
+    /* Sections */
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      position: relative;
+    }
+    section h2::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: #0077ff;
+      display: block;
+      margin: 10px auto 0;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      padding-top: 60px; /* offset for navbar */
+    }
+    .hero img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #0077ff;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.2rem; color: #555; margin-bottom: 20px; }
+    .btn {
+      padding: 12px 24px;
+      background: #0077ff;
+      color: #fff;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #005fcc; }
+
+    /* About */
+    .about p { text-align: center; max-width: 700px; margin: auto; font-size: 1.1rem; color: #444; }
+
+    /* Skills */
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      text-align: center;
+    }
+    .skills-list div {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .project {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .project h3 { margin-bottom: 10px; }
+    .project p { font-size: 0.95rem; color: #555; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact p { margin: 8px 0; }
+
+    /* Social Icons */
+    .socials {
+      margin-top: 20px;
+    }
+    .socials a {
+      font-size: 1.8rem;
+      margin: 0 12px;
+      color: #0077ff;
+      transition: 0.3s;
+    }
+    .socials a:hover { color: #005fcc; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 30px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>Swapna V</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+    <ul>
+      <li><a href="Home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#Languages">Languages</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <!-- Add your photo here -->
+    <img src="./4010a8ea-19ce-4a64-9743-2467d0404540.jpg" alt="Swapna V">
+    <h1>Hello, I'm <span style="color:#0077ff;">Swapna V</span></h1>
+    <p>MCA Student | Web Developer | Problem Solver</p>
+    <a href="#projects" class="btn">View My Work</a>
+    <br><br>
+    <!-- Floating Resume Button -->
+    <a href="" class="resume-btn" download>
+      <i class="fas fa-file-download"></i> Resume
+    </a>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Motivated MCA student with expertise in algorithms, AI, and database systems. 
+      Skilled in preparing academic projects, research reports, and technical presentations. 
+      Seeking opportunities to apply problem-solving and programming skills in real-world applications.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div><strong>Soft Skills</strong><br>Communication, Teamwork, Time Management, Leadership</div>
+      <div><strong>Technical Skills</strong><br>JavaScript, DBMS, C, C++</div>
+      <div><strong>Languages</strong><br>English, Kannada, Hindi, Telugu</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects & Internship</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>Internship (Mar–Apr 2024)</h3>
+        <p><strong>HTML Development Intern at Rooman Technology, Bengaluru</strong></p>
+        <p>Trained in HTML, CSS, and responsive web design. Worked on mini projects like creating semantic HTML pages and form validation.</p>
+      </div>
+      <div class="project">
+        <h3>EduSearch – Mini Project</h3>
+        <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+        <p>Created a simple web app to search colleges by city. Designed a responsive layout and added search functionality using JavaScript.</p>
+      </div>
+      <div class="project">
+        <h3>Certificate</h3>
+        <p>Certified in Python (SWAYAM Exam)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>Phone:<a href="tel:+917204078187">7204078187</a></p>
+      <p>Email:<a href="mailto:vswapna070@gmail.com">vswapna070@gmail.com</a></p>
+      <p>Location:<a href=" Balagaranahalli, Attibele, Bengaluru, Karnataka – 562107">Balagaranahalli, Attibele, Bengaluru, Karnataka – 562107</a></p>
+      <p>linkedin:<a href="https://www.linkedin.com/in/swapna-v-897530385" target="_blank">swapna-v-897530385</a></p>
+      </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Swapna V | All Rights Reserved</p>
+  </footer>
+  <script>
+  function toggleMenu() {
+    document.querySelector("nav ul").classList.toggle("show");
+  }
+
+  // Close menu when clicking on a link
+  document.querySelectorAll("nav ul li a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.querySelector("nav ul").classList.remove("show");
+    });
+  });
+</script>
+
+
+
+</body>
+</html>
